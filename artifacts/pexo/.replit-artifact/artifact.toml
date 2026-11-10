@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Pexly Marketplace"
+description = "Pexly is a digital marketplace with customer accounts, gift cards, mobile top-ups, and a connected non-custodial EVM wallet."
+version = "1.0.0"
+id = "artifacts/pexo"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23600
+
+[services.development]
+run = "pnpm --filter @workspace/pexo run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/pexo", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/pexo/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23600"
+BASE_PATH = "/"

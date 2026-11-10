@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" width="160" height="160">
+  <!-- Lime green rounded square background (as used in the app) -->
+  <rect width="160" height="160" fill="#B4F22E" rx="28"/>
+  <!-- Arc icon in dark color on green background -->
+  <path d="M 140 80 A 60 60 0 1 0 80 140" stroke="#0A0A0A" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="128" cy="128" r="12" fill="#0A0A0A"/>
+</svg>

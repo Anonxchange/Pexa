@@ -75,6 +75,7 @@ onlyBuiltDependencies:
   - unrs-resolver
 
 overrides:
+  "@wagmi/connectors": "6.2.0"
   "proxy-addr@^2": "^2.0.8"
   "source-map-js@^1": "^1.2.2"
   "fast-uri@^3": "^3.1.8"

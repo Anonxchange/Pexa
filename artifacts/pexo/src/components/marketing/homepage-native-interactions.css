@@ -1,0 +1,108 @@
+.current-source-page-home .home-native-swiper::-webkit-scrollbar {
+  display: none;
+}
+
+.current-source-page-home .home-native-swiper {
+  cursor: grab;
+  overscroll-behavior-x: contain;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+.current-source-page-home .home-native-swiper.home-native-is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.current-source-page-home .home-native-marquee {
+  user-select: none;
+}
+
+.current-source-page-home .home-native-marquee .splide__track {
+  cursor: grab;
+}
+
+.current-source-page-home .home-native-marquee.home-native-is-dragging .splide__track {
+  cursor: grabbing;
+}
+
+.current-source-page-home .faq-ans-block {
+  display: none;
+}
+
+.current-source-page-home .faq-ans-block.w--open {
+  display: block;
+}
+
+.current-source-page-home .faq-ans-block[hidden] {
+  display: none !important;
+}
+
+.current-source-page-home .how-it-work-tab-link .tab-link-text-block {
+  display: none;
+}
+
+.current-source-page-home .how-it-work-tab-link.w--current .tab-link-text-block {
+  display: block;
+}
+
+.current-source-page-home .card-slide-content {
+  cursor: pointer;
+}
+
+.current-source-page-home .card-slide-content:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -4px;
+}
+
+.current-source-page-home .card-slide-para-block {
+  display: none;
+}
+
+.current-source-page-home .card-slide-content.is-expanded .card-slide-text-block {
+  box-sizing: border-box;
+  height: 50%;
+  max-height: 50%;
+  overflow-y: auto;
+}
+
+.current-source-page-home .card-slide-content.is-expanded .card-slide-para-block {
+  display: block;
+}
+
+.current-source-page-home .faq-question-icon-block {
+  position: relative;
+  display: block;
+  flex: 0 0 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.current-source-page-home .faq-question-icon-block .faq-question-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.125rem;
+  height: 2px;
+  margin: 0;
+  transform: translate(-50%, -50%);
+}
+
+.current-source-page-home .faq-question-icon-block .faq-ques-cross-icon {
+  display: none;
+}
+
+.current-source-page-home .faq-question-icon-block::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 1.125rem;
+  background: currentColor;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.current-source-page-home .faq-item.w--open .faq-question-icon-block::after {
+  display: none;
+}

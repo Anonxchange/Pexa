@@ -1,0 +1,664 @@
+.pexly-auth-page {
+  --auth-ink: #14211d;
+  --auth-muted: #737d77;
+  --auth-line: #e4e9e2;
+  --auth-lime: #c8f36a;
+  --auth-paper: #fbfcf8;
+  min-height: 100dvh;
+  color: var(--auth-ink);
+  background:
+    radial-gradient(ellipse at 50% 38%, rgba(221, 242, 194, 0.22), transparent 42%),
+    var(--auth-paper);
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.pexly-auth-page-dark {
+  --auth-ink: #f3f7f2;
+  --auth-muted: #aab6ad;
+  --auth-line: rgba(222, 234, 222, 0.14);
+  --auth-paper: #111a15;
+  background:
+    radial-gradient(ellipse at 50% 38%, rgba(64, 91, 52, 0.2), transparent 42%),
+    var(--auth-paper);
+}
+
+.pexly-auth-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 5.2vw, 78px);
+  border-bottom: 1px solid rgba(35, 57, 42, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.pexly-auth-page-dark .pexly-auth-header {
+  border-bottom-color: rgba(235, 246, 235, 0.1);
+  background: rgba(15, 24, 19, 0.94);
+}
+
+.pexly-auth-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.pexly-auth-brand-icon {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--auth-lime);
+  color: var(--auth-ink);
+}
+
+.pexly-auth-brand-glyph {
+  width: 19px;
+  height: 19px;
+}
+
+.pexly-auth-brand-name {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.075em;
+}
+
+.pexly-auth-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.pexly-auth-route-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--auth-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pexly-auth-page-dark .pexly-auth-route-nav {
+  color: var(--auth-muted);
+}
+
+.pexly-auth-route-nav a {
+  color: var(--auth-ink);
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.pexly-auth-route-nav a:hover {
+  text-decoration: underline;
+}
+
+.pexly-auth-page-dark .pexly-auth-route-nav a {
+  color: var(--auth-ink);
+}
+
+.pexly-auth-theme-toggle {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--auth-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--auth-ink);
+  cursor: pointer;
+}
+
+.pexly-auth-theme-toggle:hover {
+  background: rgba(120, 150, 105, 0.12);
+}
+
+.pexly-auth-main {
+  display: flex;
+  min-height: calc(100dvh - 76px);
+  justify-content: center;
+  padding: clamp(42px, 8vh, 88px) 20px 72px;
+}
+
+.pexly-auth-panel {
+  width: min(100%, 426px);
+  align-self: flex-start;
+  padding: 0 0 24px;
+  animation: pexly-auth-enter 480ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.pexly-auth-heading {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.pexly-auth-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #71836b;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+
+.pexly-auth-heading h1 {
+  margin: 0;
+  color: var(--auth-ink);
+  font-size: clamp(29px, 6vw, 35px);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1.12;
+}
+
+.pexly-auth-page-dark .pexly-auth-heading h1 {
+  color: var(--auth-ink);
+}
+
+.pexly-auth-heading p {
+  max-width: 350px;
+  margin: 12px auto 0;
+  color: var(--auth-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.pexly-auth-page-dark .pexly-auth-heading p {
+  color: var(--auth-muted);
+}
+
+.pexly-auth-security-challenge {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px;
+}
+
+.pexly-auth-providers {
+  display: grid;
+  gap: 10px;
+}
+
+.pexly-auth-provider {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 51px;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.pexly-auth-provider:hover {
+  transform: translateY(-1px);
+}
+
+.pexly-auth-provider:disabled {
+  cursor: wait;
+  opacity: 0.55;
+  transform: none;
+}
+
+.pexly-auth-provider:active {
+  transform: translateY(0);
+}
+
+.pexly-auth-provider-lime {
+  border-color: #bde55e;
+  background: var(--auth-lime);
+  color: #172116;
+}
+
+.pexly-auth-provider-lime:hover {
+  background: #bce957;
+}
+
+.pexly-auth-provider-dark {
+  background: #18221e;
+  color: #f8fbf5;
+}
+
+.pexly-auth-provider-dark:hover {
+  background: #26332d;
+}
+
+.pexly-auth-page-dark .pexly-auth-provider-dark {
+  border-color: rgba(235, 246, 235, 0.14);
+  background: #26332d;
+}
+
+.pexly-auth-page-dark .pexly-auth-provider-dark:hover {
+  background: #33463b;
+}
+
+.pexly-auth-provider-mark {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+}
+
+.pexly-auth-wallet-mark {
+  width: 21px;
+  height: 21px;
+}
+
+.pexly-auth-provider-error {
+  margin: 12px 0 0;
+  color: #a43a31;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.pexly-auth-page-dark .pexly-auth-provider-error {
+  color: #ff9b91;
+}
+
+.pexly-auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  color: #8b938d;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pexly-auth-divider span:first-child,
+.pexly-auth-divider span:last-child {
+  height: 1px;
+  flex: 1;
+  background: var(--auth-line);
+}
+
+.pexly-auth-page-dark .pexly-auth-divider {
+  color: var(--auth-muted);
+}
+
+.pexly-auth-form {
+  min-width: 0;
+}
+
+.pexly-auth-form > * {
+  max-width: 100%;
+}
+
+.pexly-auth-page :focus-visible {
+  outline: 3px solid #759f39;
+  outline-offset: 3px;
+}
+
+@keyframes pexly-auth-enter {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .pexly-auth-header {
+    min-height: 66px;
+    padding: 0 18px;
+  }
+
+  .pexly-auth-route-nav {
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .pexly-auth-main {
+    min-height: calc(100dvh - 66px);
+    padding: 42px 22px 56px;
+  }
+
+  .pexly-auth-heading {
+    margin-bottom: 25px;
+  }
+
+  .pexly-auth-provider {
+    min-height: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pexly-auth-panel {
+    animation: none;
+  }
+
+  .pexly-auth-provider {
+    transition: none;
+  }
+}
+
+/*
+ * The auth route reuses the classes from the exported Webflow page. The
+ * original rules are embedded in the static HTML export, so mirror the small
+ * auth-specific subset here for the React sign-in and sign-up routes.
+ */
+.webflow-auth-shell {
+  --auth-ink: var(--_color---typography--cyan, #0c1111);
+  --auth-muted: var(--_color---typography--dark-gray, #464646);
+  --auth-paper: var(--_color---base--white, #fff);
+  min-height: 100dvh;
+  color: var(--auth-ink);
+  background: var(--auth-paper);
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.webflow-auth-shell .main {
+  display: flex;
+  min-height: calc(100dvh - 72px);
+}
+
+.webflow-auth-shell .section-auth {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  min-height: calc(100dvh - 72px);
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(88px, 11vh, 120px) 5% clamp(40px, 7vh, 72px);
+}
+
+.webflow-auth-shell .padding-global {
+  width: 100%;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.webflow-auth-shell .auth-container {
+  width: 100%;
+  max-width: 26.5rem;
+  margin: 0 auto;
+}
+
+.webflow-auth-shell .h2-heading {
+  margin: 0;
+  color: var(--auth-ink);
+  font-size: var(--_size---heading--h2, clamp(1.5rem, 2.25vw + 1rem, 3rem));
+  font-weight: 700;
+  line-height: var(--_size---line-height--h2, 1.15);
+  letter-spacing: -0.045em;
+}
+
+.webflow-auth-shell .auth-title-block {
+  text-align: center;
+}
+
+.webflow-auth-shell .auth-description-block {
+  margin: 1.25rem 0 2rem;
+  text-align: center;
+}
+
+.webflow-auth-shell .p-md.dark-gray {
+  margin: 0;
+  color: var(--auth-muted);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.webflow-auth-shell .auth-security-challenge {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 1.25rem;
+}
+
+.webflow-auth-shell .auth-method-block {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.webflow-auth-shell .auth-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.webflow-auth-shell .auth-field-group {
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.webflow-auth-shell .auth-field-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--auth-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.webflow-auth-shell .auth-text-field,
+.webflow-auth-shell .auth-select-field {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(9, 30, 28, 0.18);
+  border-radius: 0.75rem;
+  background: var(--auth-paper);
+  color: var(--auth-ink);
+  font: 500 1rem/1.4 "Plus Jakarta Sans", system-ui, sans-serif;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.webflow-auth-shell .auth-text-field {
+  display: block;
+}
+
+.webflow-auth-shell .auth-select-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.webflow-auth-shell .auth-text-field::placeholder {
+  color: #858d87;
+  opacity: 1;
+}
+
+.webflow-auth-shell .auth-text-field:focus,
+.webflow-auth-shell .auth-select-field:focus {
+  border-color: #091e1c;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(9, 30, 28, 0.08);
+}
+
+.webflow-auth-shell .auth-password-field {
+  padding-right: 3.25rem;
+}
+
+.webflow-auth-shell .auth-code-field {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.18em;
+}
+
+.webflow-auth-shell .auth-submit-button {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.5rem;
+  border: 1px solid #0a0a0a;
+  border-radius: 0.75rem;
+  background: #0a0a0a;
+  color: #fff;
+  font: 700 1rem/1.4 "Plus Jakarta Sans", system-ui, sans-serif;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.webflow-auth-shell .auth-submit-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: #1d3029;
+  background: #1d3029;
+}
+
+.webflow-auth-shell .auth-submit-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+html.dark .webflow-auth-shell .auth-text-field,
+html.dark .webflow-auth-shell .auth-select-field {
+  border-color: rgba(235, 246, 235, 0.2);
+}
+
+html.dark .webflow-auth-shell .auth-text-field:focus,
+html.dark .webflow-auth-shell .auth-select-field:focus {
+  border-color: #d8ff85;
+  box-shadow: 0 0 0 3px rgba(216, 255, 133, 0.12);
+}
+
+.webflow-auth-shell .auth-button {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--_size---radius--0-75rem, 0.75rem);
+  background: var(--_color---button--btn-secondary, #d8ff85);
+  color: #0c1111;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.webflow-auth-shell .auth-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background-color: #c9f06d;
+}
+
+.webflow-auth-shell .auth-button:where(.w-variant-d756eb77-40c1-963c-307d-7fe3300d641b) {
+  border-color: #0a0a0a;
+  background: var(--_color---background--black, #0a0a0a);
+  color: #fff;
+}
+
+.webflow-auth-shell .auth-button:where(.w-variant-d756eb77-40c1-963c-307d-7fe3300d641b) > * {
+  color: #fff;
+}
+
+.webflow-auth-shell .auth-button:where(.w-variant-80454ff6-0e3c-af76-c14e-8050a4ceda86) {
+  border-color: rgba(12, 17, 17, 0.22);
+  background: transparent;
+  color: var(--auth-ink);
+}
+
+.webflow-auth-shell .auth-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.webflow-auth-shell .auth-btn-icon-block {
+  display: grid;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+}
+
+.webflow-auth-shell .auth-btn-icon,
+.webflow-auth-shell .pexly-auth-provider-mark {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.webflow-auth-shell .auth-switch-prompt {
+  margin: 1.5rem 0 0;
+  color: var(--auth-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.webflow-auth-shell .auth-switch-prompt a,
+.webflow-auth-shell .auth-back-link {
+  color: var(--auth-ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.webflow-auth-shell .auth-back-link {
+  align-self: center;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.webflow-auth-shell .auth-provider-error {
+  margin: 0;
+  color: #a43a31;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.webflow-auth-shell :focus-visible {
+  outline: 3px solid #759f39;
+  outline-offset: 3px;
+}
+
+html.dark .webflow-auth-shell {
+  --auth-ink: #f3f7f2;
+  --auth-muted: #aab6ad;
+  --auth-paper: #111a15;
+}
+
+html.dark .webflow-auth-shell .auth-button:where(.w-variant-80454ff6-0e3c-af76-c14e-8050a4ceda86) {
+  border-color: rgba(235, 246, 235, 0.2);
+}
+
+@media (max-width: 520px) {
+  .webflow-auth-shell .section-auth {
+    padding: 82px 0 40px;
+  }
+
+  .webflow-auth-shell .padding-global {
+    padding-right: 1.125rem;
+    padding-left: 1.125rem;
+  }
+
+  .webflow-auth-shell .auth-description-block {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .webflow-auth-shell .auth-button {
+    transition: none;
+  }
+
+  .webflow-auth-shell .auth-button:hover:not(:disabled) {
+    transform: none;
+  }
+}

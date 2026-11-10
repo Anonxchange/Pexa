@@ -1,0 +1,10 @@
+# security.txt for Pexly (https://www.pexly.app)
+# Spec: RFC 9116 — https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:security@pexly.app
+Policy: https://www.pexly.app/risk-disclosure
+
+Canonical: https://www.pexly.app/.well-known/security.txt
+Preferred-Languages: en
+
+Expires: 2027-09-12T00:00:00.000Z

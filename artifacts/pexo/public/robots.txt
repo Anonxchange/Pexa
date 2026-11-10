@@ -1,0 +1,65 @@
+User-agent: *
+Disallow: /explorer/transaction/
+Disallow: /explorer/block/
+Disallow: /explorer/address/
+Disallow: /explorer/blocks
+Disallow: /explorer/transactions
+Disallow: /_vercel/insights/
+Disallow: /_vercel/speed-insights/
+Disallow: /cdn-cgi/
+
+# Applebot crawls Vercel analytics/telemetry endpoints aggressively - keep it
+# indexing real pages but block it from these
+User-agent: Applebot
+Disallow: /_vercel/insights/
+Disallow: /_vercel/speed-insights/
+Disallow: /cdn-cgi/
+
+# Block AI training crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: img2dataset
+Disallow: /
+
+Sitemap: https://www.pexly.app/sitemap.xml
+Sitemap: https://www.pexly.app/sitemap-products.xml
