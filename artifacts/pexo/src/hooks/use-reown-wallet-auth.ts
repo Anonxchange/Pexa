@@ -38,7 +38,7 @@ export function useReownWalletAuth() {
         uri: `${origin}/`,
         version: "1",
         statement: "Sign in to Pexly. This message does not authorize a transaction.",
-        issuedAt: new Date().toISOString(),
+        issuedAt: new Date(),
       });
       const signature = await signMessageAsync({
         account: account.address,
@@ -59,6 +59,18 @@ export function useReownWalletAuth() {
       if (error) throw error;
       if (!data.user || !data.session) {
         throw new Error("Wallet sign-in did not create an active Supabase session.");
+      }
+
+      const { error: linkError } = await supabase.functions.invoke("link-wallet", {
+        body: {
+          walletAddress: account.address,
+          message,
+          signature,
+          flow: "siwe",
+        },
+      });
+      if (linkError) {
+        console.warn("Wallet sign-in succeeded, but its address could not be saved yet.", linkError.message);
       }
       return { status: "signed-in", user: data.user };
     },

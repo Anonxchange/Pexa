@@ -1,5 +1,6 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { getAddress, isAddress, verifyMessage } from "npm:viem@2";
+import { parseSiweMessage } from "npm:viem@2/siwe";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -46,24 +47,45 @@ Deno.serve(async (request) => {
     const walletAddress = typeof body.walletAddress === "string" ? body.walletAddress.trim() : "";
     const message = typeof body.message === "string" ? body.message : "";
     const signature = typeof body.signature === "string" ? body.signature : "";
+    const flow = body.flow === "siwe" ? "siwe" : "link";
     if (!isAddress(walletAddress) || !signature) {
       return jsonResponse({ error: "A valid EVM address and wallet signature are required." }, 400);
     }
 
     const address = getAddress(walletAddress);
-    const identity = user.email || user.id;
-    const messageMatch = message.match(/ at (\d{13})$/);
-    const issuedAt = messageMatch ? Number(messageMatch[1]) : 0;
-    const ageMs = Date.now() - issuedAt;
-    const expectedMessage = `Verify ownership of wallet ${address} for Pez account ${identity} at ${issuedAt}`;
-    if (
-      !messageMatch ||
-      message !== expectedMessage ||
-      !Number.isFinite(ageMs) ||
-      ageMs < -60_000 ||
-      ageMs > 5 * 60_000
-    ) {
-      return jsonResponse({ error: "The wallet verification message is invalid or expired." }, 400);
+    if (flow === "siwe") {
+      const siwe = parseSiweMessage(message);
+      const origin = request.headers.get("Origin");
+      const expectedDomain = origin ? new URL(origin).host : "";
+      const issuedAt = siwe.issuedAt ? Date.parse(siwe.issuedAt) : NaN;
+      const ageMs = Date.now() - issuedAt;
+      if (
+        !siwe.address ||
+        siwe.address.toLowerCase() !== address.toLowerCase() ||
+        siwe.domain !== expectedDomain ||
+        !siwe.nonce ||
+        siwe.version !== "1" ||
+        !Number.isFinite(issuedAt) ||
+        ageMs < -60_000 ||
+        ageMs > 5 * 60_000
+      ) {
+        return jsonResponse({ error: "The SIWE message is invalid or expired." }, 400);
+      }
+    } else {
+      const identity = user.email || user.id;
+      const messageMatch = message.match(/ at (\d{13})$/);
+      const issuedAt = messageMatch ? Number(messageMatch[1]) : 0;
+      const ageMs = Date.now() - issuedAt;
+      const expectedMessage = `Verify ownership of wallet ${address} for Pez account ${identity} at ${issuedAt}`;
+      if (
+        !messageMatch ||
+        message !== expectedMessage ||
+        !Number.isFinite(ageMs) ||
+        ageMs < -60_000 ||
+        ageMs > 5 * 60_000
+      ) {
+        return jsonResponse({ error: "The wallet verification message is invalid or expired." }, 400);
+      }
     }
 
     const valid = await verifyMessage({
@@ -82,15 +104,18 @@ Deno.serve(async (request) => {
       .eq("user_id", user.id);
     if (existingError) throw existingError;
 
-    const alreadyPrimary = (existing ?? []).some(
-      (row) => row.is_primary && row.wallet_address.toLowerCase() !== address.toLowerCase(),
-    );
+    const { error: clearPrimaryError } = await admin
+      .from("user_wallets")
+      .update({ is_primary: false })
+      .eq("user_id", user.id);
+    if (clearPrimaryError) throw clearPrimaryError;
+
     const { error: upsertError } = await admin.from("user_wallets").upsert(
       {
         user_id: user.id,
         wallet_address: address.toLowerCase(),
         chain_type: "evm",
-        is_primary: !alreadyPrimary,
+        is_primary: true,
         verified_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       },

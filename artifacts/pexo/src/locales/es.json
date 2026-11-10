@@ -662,9 +662,9 @@
   "faq": {
     "title": "¿Aún tienes preguntas?",
     "q1": "«¿Mi cripto está realmente segura?»",
-    "a1": "Siempre. Pexly es totalmente no custodiado — tus claves privadas nunca salen de tu dispositivo. No podemos acceder, congelar ni mover tus fondos. Nunca.",
+    "a1": "Tus activos permanecen en la cartera conectada. Pexly no puede acceder a ellos ni moverlos; aprueba solo las transacciones que reconozcas.",
     "q2": "«¿De verdad soy dueño de mis claves?»",
-    "a2": "Sí, al 100 %. Tu seed phrase se genera y almacena solo en tu dispositivo. Ningún servidor guarda copia. La autocustodia es el estándar.",
+    "a2": "Pexly nunca genera ni almacena claves privadas o frases de recuperación. Reown o tu cartera externa gestiona el acceso y la recuperación.",
     "q3": "«¿Cuáles son las comisiones reales?»",
     "a3": "Sin cargos ocultos. Sin cuotas mensuales. Solo pagas las comisiones de red estándar para transacciones on-chain. Lo que ves es lo que pagas, nada más."
   },

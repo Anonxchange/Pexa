@@ -662,9 +662,9 @@
   "faq": {
     "title": "Still have questions?",
     "q1": "“Is my crypto actually safe?”",
-    "a1": "Always. Pexly is fully non-custodial — your private keys never leave your device. We can’t access, freeze, or move your funds. Ever.",
+    "a1": "Your assets stay in the connected wallet. Pexly cannot access or move them; only approve transactions you recognize.",
     "q2": "“Do I really own my keys?”",
-    "a2": "Yes, 100%. Your seed phrase is generated and stored locally on your device only. No server holds a copy. Self-custody is the default, not an add-on.",
+    "a2": "Pexly never generates or stores private keys or recovery phrases. Reown or your external wallet manages access; use that wallet’s recovery options.",
     "q3": "“What are the real fees?”",
     "a3": "No hidden charges. No monthly fees. You only pay standard network fees for on-chain transactions. What you see is exactly what you pay — nothing more."
   },

@@ -323,7 +323,7 @@ export async function sendLoginNotificationIfEnabled(
 // Fires once per 24h per user (localStorage gate) when market_movers pref is on.
 // Picks ONE random coin from top gainers / losers / trending and inserts a single
 // price_alert notification styled like a news flash (Bybit-style).
-// Primary source: AsterDex public API. Falls back to Binance public API if down.
+// Uses the app's shared crypto price feed for market-mover notifications.
 
 const COIN_NAMES: Record<string, string> = {
   BTC:'Bitcoin', ETH:'Ethereum', BNB:'BNB', SOL:'Solana', XRP:'XRP',

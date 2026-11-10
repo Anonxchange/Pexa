@@ -84,7 +84,7 @@ export const SYMBOL_ICON_MAP: Record<string, string> = {
 };
 
 // ── Contract-address → local icon (case-insensitive match) ────────────────────
-// Keyed by EVM contract address. Covers the most common AsterDEX spot tokens
+// Keyed by EVM contract address. Covers common EVM assets
 // across BSC, Ethereum, and Arbitrum so address-based lookup hits the local
 // registry first (zero network round-trip).
 export const CONTRACT_ICON_MAP: Record<string, string> = {

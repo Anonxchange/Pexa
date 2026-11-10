@@ -662,9 +662,9 @@
   "faq": {
     "title": "Encore des questions ?",
     "q1": "« Mes cryptos sont-ils vraiment en sécurité ? »",
-    "a1": "Toujours. Pexly est entièrement non-custodial — vos clés privées ne quittent jamais votre appareil. Nous ne pouvons ni accéder, ni geler, ni déplacer vos fonds. Jamais.",
+    "a1": "Vos actifs restent dans le portefeuille connecté. Pexly ne peut ni y accéder ni les déplacer ; n’approuvez que les transactions que vous reconnaissez.",
     "q2": "« Suis-je vraiment propriétaire de mes clés ? »",
-    "a2": "Oui, à 100 %. Votre seed phrase est générée et stockée localement sur votre appareil uniquement. Aucun serveur n'en a de copie. L'auto-custody est la norme.",
+    "a2": "Pexly ne génère ni ne stocke de clés privées ou de phrases de récupération. Reown ou votre portefeuille externe gère l’accès et la récupération.",
     "q3": "« Quels sont les vrais frais ? »",
     "a3": "Aucuns frais cachés. Aucun abonnement mensuel. Vous ne payez que les frais réseau standards. Ce que vous voyez est exactement ce que vous payez — rien de plus."
   },

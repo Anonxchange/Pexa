@@ -662,9 +662,9 @@
   "faq": {
     "title": "Ainda tem dúvidas?",
     "q1": "“Minha cripto está realmente segura?”",
-    "a1": "Sempre. A Pexly é totalmente não custodial — suas chaves privadas nunca saem do seu dispositivo. Não podemos acessar, congelar ou mover seus fundos. Nunca.",
+    "a1": "Seus ativos permanecem na carteira conectada. A Pexly não pode acessá-los nem movê-los; aprove apenas transações que você reconheça.",
     "q2": "“Eu realmente sou dono das minhas chaves?”",
-    "a2": "Sim, 100 %. Sua seed phrase é gerada e armazenada localmente apenas no seu dispositivo. Nenhum servidor guarda cópia. A autocustódia é o padrão.",
+    "a2": "A Pexly nunca gera nem armazena chaves privadas ou frases de recuperação. A Reown ou sua carteira externa controla o acesso e a recuperação.",
     "q3": "“Quais são as taxas reais?”",
     "a3": "Sem cobranças ocultas. Sem mensalidades. Você só paga as taxas de rede padrão para transações on-chain. O que você vê é o que paga — nada mais."
   },
